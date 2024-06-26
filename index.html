@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://vjs.zencdn.net/7.14.3/video-js.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Your HTML content -->
+    <div class="wrapper">
+        <div class="play-wrapper">
+            <center><img id="playing" class="cover" src="img/onair.jpg" alt="Currently Playing"></center>
+            <video id="tv-player" class="video-js vjs-default-skin" controls preload="auto" width="640" height="264">
+                <source src="https://ktvhdsg.ekantipur.com:8443/high_quality_85840165/hd/playlist.m3u8" type="application/x-mpegURL">
+            </video>
+        </div>
+        <div class="channel-list-wrapper">
+            <ul class="channel-list" id="channel-list">
+                <li data-src="https://ktvhdsg.ekantipur.com:8443/high_quality_85840165/hd/playlist.m3u8" class="selected-channel">Nepali TV Channel</li>
+                <li data-src="https://example.com/channel1.m3u8">Channel 1</li>
+                <li data-src="https://example.com/channel2.m3u8">Channel 2</li>
+                <li data-src="https://example.com/channel3.m3u8">Channel 3</li>
+            </ul>
+        </div>
+    </div>
+    <script src="https://vjs.zencdn.net/7.14.3/video.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.15.0/videojs-contrib-hls.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
