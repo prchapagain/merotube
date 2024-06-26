@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Player</title>
-    <link href="style.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://vjs.zencdn.net/7.14.3/video-js.css" rel="stylesheet">
+    <script src="https://vjs.zencdn.net/7.14.3/video.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.15.0/videojs-contrib-hls.js"></script>
+    <style>
+        .channel-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .channel-list li {
+            padding: 10px;
+            cursor: pointer;
+            background: #f0f0f0;
+            margin-bottom: 5px;
+            width: 200px;
+            text-align: center;
+        }
+        .channel-list li:hover {
+            background: #ccc;
+        }
+        .selected-channel {
+            border: 2px solid lime;
+        }
+    </style>
 </head>
 <body>
-    <!-- Your HTML content -->
     <div class="wrapper">
         <div class="play-wrapper">
             <center><img id="playing" class="cover" src="img/onair.jpg" alt="Currently Playing"></center>
@@ -25,8 +49,27 @@
             </ul>
         </div>
     </div>
-    <script src="https://vjs.zencdn.net/7.14.3/video.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.15.0/videojs-contrib-hls.js"></script>
-    <script src="script.js"></script>
+    <script>
+        var player = videojs('tv-player');
+        player.on('play', function() {
+            document.getElementById('playing').style.border = '0.1em solid lime';
+        });
+        player.on('pause', function() {
+            document.getElementById('playing').style.border = 'none';
+        });
+
+        document.getElementById('channel-list').addEventListener('click', function(event) {
+            var target = event.target;
+            if (target.tagName.toLowerCase() === 'li') {
+                var src = target.getAttribute('data-src');
+                player.src({ src: src, type: 'application/x-mpegURL' });
+                player.play();
+                document.querySelectorAll('.channel-list li').forEach(function(li) {
+                    li.classList.remove('selected-channel');
+                });
+                target.classList.add('selected-channel');
+            }
+        });
+    </script>
 </body>
 </html>
