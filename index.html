@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://vjs.zencdn.net/7.14.3/video-js.css" rel="stylesheet">
     <script src="https://vjs.zencdn.net/7.14.3/video.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.15.0/videojs-contrib-hls.js"></script>
     <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .play-wrapper {
+            text-align: center;
+        }
+        .cover {
+            width: 200px;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px;
+        }
+        .channel-list-wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
         .channel-list {
             list-style-type: none;
             padding: 0;
@@ -19,10 +48,21 @@
         .channel-list li {
             padding: 10px;
             cursor: pointer;
-            background: #f0f0f0;
+            background: #ffffff;
             margin-bottom: 5px;
             width: 200px;
             text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .channel-list li img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            border-radius: 50%;
         }
         .channel-list li:hover {
             background: #ccc;
@@ -30,22 +70,37 @@
         .selected-channel {
             border: 2px solid lime;
         }
+        .video-js {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="wrapper">
         <div class="play-wrapper">
-            <center><img id="playing" class="cover" src="img/onair.jpg" alt="Currently Playing"></center>
-            <video id="tv-player" class="video-js vjs-default-skin" controls preload="auto" width="640" height="264">
+            <img id="playing" class="cover" src="https://res.cloudinary.com/djcw5veb6/image/upload/fl_preserve_transparency/v1719399755/mero_logo_gbrupf.jpg?_s=public-apps" alt="Currently Playing">
+            <video id="tv-player" class="video-js vjs-default-skin" controls preload="auto" width="640" height="360" autoplay>
                 <source src="https://ktvhdsg.ekantipur.com:8443/high_quality_85840165/hd/playlist.m3u8" type="application/x-mpegURL">
             </video>
         </div>
         <div class="channel-list-wrapper">
             <ul class="channel-list" id="channel-list">
-                <li data-src="https://ktvhdsg.ekantipur.com:8443/high_quality_85840165/hd/playlist.m3u8" class="selected-channel">Nepali TV Channel</li>
-                <li data-src="https://example.com/channel1.m3u8">Channel 1</li>
-                <li data-src="https://example.com/channel2.m3u8">Channel 2</li>
-                <li data-src="https://example.com/channel3.m3u8">Channel 3</li>
+                <li data-src="https://ktvhdsg.ekantipur.com:8443/high_quality_85840165/hd/playlist.m3u8" class="selected-channel">
+                    <img src="https://kantipurtv.com/assets/img/ktv-logo.svg" alt="Nepali TV Channel">
+                    Kantipur HD
+                </li>
+                <li data-src="http://150.107.205.212:1935/live/mithila/playlist.m3u8#checkedby:iptvlister.com">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/merotv-f3e97.appspot.com/o/logo_stor%2F1719112505174.jpg?alt=media&token=3bd2ac60-3ba1-4717-b66d-6a5dcda7813a" alt="Channel 1">
+                    Mithila HD
+                </li>
+                <li data-src="https://np.truestreamz.com/nplive/ntvnational-abr.stream/live/ntvnational406.stream/chunks.m3u8?nimblesessionid=9144626&wmsAuthSign=c2VydmVyX3RpbWU9Ni8yNi8yMDI0IDExOjIwOjU4IEFNJmhhc2hfdmFsdWU9bWRiZ29ZczE3WFlvSW95QjFqWFVWUT09JnZhbGlkbWludXRlcz0xNSZpZD0x">
+                    <img src="https://ntv.newitventure.com//images/channel_logos/1.png" alt="Channel 2">
+                    NTV HD
+                </li>
+                <li data-src="https://nplb.truestreamz.com/livestreamer-np/ntvplus-abr.stream/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9Ni8yNi8yMDI0IDExOjI1OjQxIEFNJmhhc2hfdmFsdWU9bUVJSlVPNFZtNlV6QndJbTVxV1UzQT09JnZhbGlkbWludXRlcz0xNSZpZD0x">
+                    <img src="https://ntv.newitventure.com//images/channel_logos/2.png" alt="Channel 3">
+                    NTV PLUS HD
+                </li>
             </ul>
         </div>
     </div>
@@ -59,8 +114,8 @@
         });
 
         document.getElementById('channel-list').addEventListener('click', function(event) {
-            var target = event.target;
-            if (target.tagName.toLowerCase() === 'li') {
+            var target = event.target.closest('li');
+            if (target) {
                 var src = target.getAttribute('data-src');
                 player.src({ src: src, type: 'application/x-mpegURL' });
                 player.play();
@@ -70,6 +125,10 @@
                 target.classList.add('selected-channel');
             }
         });
+
+        window.onload = function() {
+            player.play();
+        };
     </script>
 </body>
 </html>
