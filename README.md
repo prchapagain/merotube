@@ -1,6 +1,6 @@
 # MeroTV
 
-MeroTV is a simple web-based video player that allows users to switch between different channels. The video player uses Video.js along with HLS (HTTP Live Streaming) support. Users can click on a channel from the list to start streaming the selected channel.
+MeroTV is a simple web-based video player include nepali TV channelthat allows users to switch between different channels. The video player uses Video.js along with HLS (HTTP Live Streaming) support. Users can click on a channel from the list to start streaming the selected channel.
 
 ## Features
 
