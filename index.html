@@ -1,134 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merotv Live</title>
     <link href="https://vjs.zencdn.net/7.14.3/video-js.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <script src="https://vjs.zencdn.net/7.14.3/video.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.15.0/videojs-contrib-hls.js"></script>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
-        .wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .play-wrapper {
-            text-align: center;
-        }
-        .cover {
-            width: 200px;
-            height: auto;
-            display: block;
-            margin: 0 auto 20px;
-        }
-        .channel-list-wrapper {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-        }
-        .channel-list {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        .channel-list li {
-            padding: 10px;
-            cursor: pointer;
-            background: #ffffff;
-            margin-bottom: 5px;
-            width: 200px;
-            text-align: center;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-        }
-        .channel-list li img {
-            width: 30px;
-            height: 30px;
-            margin-right: 10px;
-            border-radius: 50%;
-        }
-        .channel-list li:hover {
-            background: #ccc;
-        }
-        .selected-channel {
-            border: 2px solid lime;
-        }
-        .video-js {
-            margin-bottom: 20px;
-        }
-    </style>
+    <script src="https://cdn.jsdelivr.net/npm/videojs-youtube@2.6.1/dist/Youtube.min.js"></script>
 </head>
 <body>
-    <div class="wrapper">
-        <div class="play-wrapper">
-            <img id="playing" class="cover" src="https://res.cloudinary.com/djcw5veb6/image/upload/fl_preserve_transparency/v1719399755/mero_logo_gbrupf.jpg?_s=public-apps" alt="Currently Playing">
-            <video id="tv-player" class="video-js vjs-default-skin" controls preload="auto" width="640" height="360" autoplay>
-                <source src="https://ktvhdsg.ekantipur.com:8443/high_quality_85840165/hd/playlist.m3u8" type="application/x-mpegURL">
-            </video>
+    <header class="header">
+        <div class="header-logo">
+            <img src="https://res.cloudinary.com/djcw5veb6/image/upload/v1719399755/mero_logo_gbrupf.png" alt="Your Logo">
         </div>
-        <div class="channel-list-wrapper">
-            <ul class="channel-list" id="channel-list">
-                <li data-src="https://ktvhdsg.ekantipur.com:8443/high_quality_85840165/hd/playlist.m3u8" class="selected-channel">
-                    <img src="https://kantipurtv.com/assets/img/ktv-logo.svg" alt="Nepali TV Channel">
-                    Kantipur HD
-                </li>
-                <li data-src="http://150.107.205.212:1935/live/mithila/playlist.m3u8#checkedby:iptvlister.com">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/merotv-f3e97.appspot.com/o/logo_stor%2F1719112505174.jpg?alt=media&token=3bd2ac60-3ba1-4717-b66d-6a5dcda7813a" alt="Channel 1">
-                    Mithila HD
-                </li>
-                <li data-src="https://np.truestreamz.com/nplive/ntvnational-abr.stream/live/ntvnational406.stream/chunks.m3u8?nimblesessionid=9144626&wmsAuthSign=c2VydmVyX3RpbWU9Ni8yNi8yMDI0IDExOjIwOjU4IEFNJmhhc2hfdmFsdWU9bWRiZ29ZczE3WFlvSW95QjFqWFVWUT09JnZhbGlkbWludXRlcz0xNSZpZD0x">
-                    <img src="https://ntv.newitventure.com//images/channel_logos/1.png" alt="Channel 2">
-                    NTV HD
-                </li>
-                <li data-src="https://nplb.truestreamz.com/livestreamer-np/ntvplus-abr.stream/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9Ni8yNi8yMDI0IDExOjI1OjQxIEFNJmhhc2hfdmFsdWU9bUVJSlVPNFZtNlV6QndJbTVxV1UzQT09JnZhbGlkbWludXRlcz0xNSZpZD0x">
-                    <img src="https://ntv.newitventure.com//images/channel_logos/2.png" alt="Channel 3">
-                    NTV PLUS HD
-                </li>
-            </ul>
-        </div>
+        <h1 class="header-title">Merotv Live</h1>
+    </header>
+
+    <div class="side-text" id="side-text">Notification Message</div>
+
+    <div class="button-container">
+        <button id="nepali-channels-btn">Nepali Channels</button>
+        <button id="hindi-channels-btn">Hindi Channels</button>
+        <button id="movies-btn">Movies</button>
     </div>
+<div class="search-container">
+    <input type="text" id="search-input" placeholder="Search for movies or channels...">
+</div>
+
+    <div class="content">
+        <ul class="channel-list" id="nepali-channel-list">
+            <li data-src="https://ktvhdsg.ekantipur.com:8443/high_quality_85840165/hd/playlist.m3u8">
+                <img src="https://kantipurtv.com/assets/img/ktv-logo.svg" alt="Kantipur HD">
+                <div>Kantipur HD</div>
+            </li>
+            <li data-src="http://150.107.205.212:1935/live/mithila/playlist.m3u8">
+                <img src="https://firebasestorage.googleapis.com/v0/b/merotv-f3e97.appspot.com/o/logo_stor%2F1719112505174.jpg?alt=media&token=3bd2ac60-3ba1-4717-b66d-6a5dcda7813a" alt="Mithila HD">
+                <div>Mithila HD</div>
+            </li>
+            <li data-src="https://www.youtube.com/watch?v=Dc-W3r9sk-w">
+                <img src="https://snowberry.prixacdn.net/media/av_vj7ypigi0u9ihjehg71f5bade7hgd5yt4cdzctq5n15poqjutkvavi25gjak.jpeg" alt="AVENUES">
+                <div>AVENUES</div>
+            </li>
+            <li data-src="https://www.youtube.com/watch?v=FpWO6O_B1UU">
+                <img src="https://path/to/news24_logo.jpg" alt="News 24">
+                <div>News 24</div>
+            </li>
+        </ul>
+
+        <ul class="channel-list" id="hindi-channel-list" style="display:none;">
+            <li data-src="https://www.youtube.com/watch?v=Xmm3Kr5P1Uw">
+                <img src="https://www.adgully.com/img/800/202004/india-tv.jpg" alt="India TV">
+                <div>India TV</div>
+            </li>
+            <li data-src="https://livetv.newsx.com/itv/itvnetwork5/playlist.m3u8#checkedby:iptvlister.com">
+                <img src="https://www.itvnewsnetwork.com/logo.png" alt="News X">
+                <div>News X</div>
+            </li>
+            <li data-src="https://n18syndication.akamaized.net/bpk-tv/CNN_News18_NW18_MOB/output01/index.m3u8#checkedby:iptvlister.com">
+                <img src="https://th.bing.com/th/id/R.14aaf1be34c63d352db45c06dc7ef37d?rik=5RUffy%2bxZzn87g&pid=ImgRaw&r=0" alt="CNN News18">
+                <div>CNN News18</div>
+            </li>
+        </ul>
+
+        <ul class="channel-list" id="movies-list" style="display:none;">
+            <li data-src="https://www.youtube.com/watch?v=KwMI_u4CSzc">
+                <img src="https://img.youtube.com/vi/KwMI_u4CSzc/0.jpg" alt="लक्का जवान २०२४">
+                <div>लक्का जवान २०२४</div>
+            </li>
+            <li data-src="https://www.youtube.com/watch?v=7WR3qzB40V8">
+                <img src="https://img.youtube.com/vi/7WR3qzB40V8/0.jpg" alt="कबड्डी ४ - The Final Match">
+                <div>कबड्डी ४ - The Final Match</div>
+            </li>
+            <li data-src="https://www.youtube.com/watch?v=HBljixfMG-0">
+                <img src="https://img.youtube.com/vi/HBljixfMG-0/0.jpg" alt="Yathartha - The Reality">
+                <div>Yathartha - The Reality</div>
+            </li>
+            <li data-src="https://www.youtube.com/watch?v=y7vMwo5Iowk">
+                <img src="https://img.youtube.com/vi/y7vMwo5Iowk/0.jpg" alt="Manavta">
+                <div>Manavta</div>
+            </li>
+            <li data-src="https://www.youtube.com/watch?v=gBM4IwixICg">
+                <img src="https://img.youtube.com/vi/gBM4IwixICg/0.jpg" alt="Fulbari">
+                <div>Fulbari</div>
+            </li>
+            <li data-src="https://www.youtube.com/watch?v=vhS4YFaGDCg">
+                <img src="https://img.youtube.com/vi/vhS4YFaGDCg/0.jpg" alt="UK Sweater">
+                <div>UK Sweater</div>
+            </li>
+            <li data-src="https://www.youtube.com/watch?v=TMQ0aqljWG4">
+                <img src="https://img.youtube.com/vi/TMQ0aqljWG4/0.jpg" alt="Appa">
+                <div>Appa</div>
+            </li>
+            <li data-src="https://www.youtube.com/watch?v=442Aw7Dj_2w">
+                <img src="https://img.youtube.com/vi/442Aw7Dj_2w/0.jpg" alt="Sano Mann">
+                <div>Sano Mann</div>
+            </li>
+            <li data-src="https://www.youtube.com/watch?v=zOuQfyvw4mM">
+                <img src="https://img.youtube.com/vi/zOuQfyvw4mM/0.jpg" alt="A Mero Hajur 4">
+                <div>A Mero Hajur 4</div>
+            </li>
+            <li data-src="https://www.youtube.com/watch?v=lgnmYWl26SY">
+                <img src="https://img.youtube.com/vi/lgnmYWl26SY/0.jpg" alt="Dui Numbari">
+                <div>Dui Numbari</div>
+            </li>
+            <li data-src="https://www.youtube.com/watch?v=xHbyrAIPn3Y">
+                <img src="https://img.youtube.com/vi/xHbyrAIPn3Y/0.jpg" alt="Ghampani">
+                <div>Ghampani</div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="player-wrapper" id="player-wrapper" style="display:none;">
+        <video id="video-player" class="video-js vjs-default-skin" controls preload="auto" width="640" height="360" autoplay>
+            <!-- Video source will be dynamically added -->
+        </video>
+        <button class="back-button" id="back-button">Back to Channel List</button>
+    </div>
+
+    <div class="footer">
+        Made with ♥ by PR chapagain  <a class="button" href="https://www.prchapagain.com.np"><img src="https://res.cloudinary.com/djcw5veb6/image/upload/v1719727590/about-xxl_ybbg2a.png" alt="footer img"></a>
+    </div>
+
+    <script src="script.js"></script>
     <script>
-        var player = videojs('tv-player');
-        player.on('play', function() {
-            document.getElementById('playing').style.border = '0.1em solid lime';
+        document.addEventListener('DOMContentLoaded', function() {
+            var sideText = document.getElementById('side-text');
+            sideText.innerHTML = "Welcome to Mero TV! Please pick your favorite channel and enjoy.";
+            sideText.style.display = 'block'; // Ensure the notification is visible initially
         });
-        player.on('pause', function() {
-            document.getElementById('playing').style.border = 'none';
-        });
-
-        document.getElementById('channel-list').addEventListener('click', function(event) {
-            var target = event.target.closest('li');
-            if (target) {
-                var src = target.getAttribute('data-src');
-                player.src({ src: src, type: 'application/x-mpegURL' });
-                player.play();
-                document.querySelectorAll('.channel-list li').forEach(function(li) {
-                    li.classList.remove('selected-channel');
-                });
-                target.classList.add('selected-channel');
-            }
-        });
-
-        window.onload = function() {
-            player.play();
-        };
     </script>
 </body>
 </html>
