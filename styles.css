@@ -23,7 +23,6 @@ body::before {
     background: rgba(255, 255, 255, 0.5); /* Light overlay for readability */
     z-index: -1;
 }
-
 /* Search Container */
 .search-container {
     width: 100%;
@@ -41,7 +40,7 @@ body::before {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Side Text Notification */
+
 .side-text {
     position: fixed;
     top: 10%;
@@ -59,12 +58,51 @@ body::before {
 
 .fullscreen-logo {
     position: fixed;
-    top: 10px;
-    left: 10px;
-    width: 150px;
-    height: auto;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white; /* Set background color to white */
+    color: #EC407A; /* Ensure text matches the desired color */
+    font-size: 50px;
     z-index: 10000; /* Ensure it appears on top of other elements */
-    display: none; /* Initially hidden */
+    animation: fadeInOut 2.5s ease forwards, moveText 2.5s ease forwards;
+    text-align: center; /* Center text */
+    line-height: 1.2; /* Improve readability */
+}
+
+.logo-image {
+    width: 100px; /* Adjust size as needed */
+    height: auto;
+    margin-bottom: 20px; /* Space between logo and text */
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes moveText {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 /* Header Logo */
@@ -144,7 +182,7 @@ body::before {
     padding: 0px;
     list-style-type: none;
     text-align: center;
-    max-height: 200px; /* Set height to show 3 movies initially */
+    max-height: 200 /et height to show 3 movies initially */
     overflow-y: auto; /* Enable vertical scrolling */
 }
 
@@ -231,83 +269,46 @@ body::before {
 
 .button-container button {
     padding: 15px 30px; /* Increased padding for better view */
-    margin: 0 15px; /* Increased margin for better separation */
-    font-size: 18px; /* Increased font size for better readability */
-    background-color: #007bff; /* Set button background color */
-    color: #ffffff; /* Set button text color */
-    border: none; /* Remove button border */
-    border-radius: 5px; /* Add border radius */
-    cursor: pointer; /* Change cursor to pointer */
-    transition: background-color 0.3s ease; /* Add transition for background color */
+    margin: 0 15px; /* Increased margin for better spacing */
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px; /* Increased font size for better view */
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .button-container button:hover {
-    background-color: #0056b3; /* Change background color on hover */
+    background-color: #0056b3;
+    transform: scale(1.05); /* Slight increase in size on hover for 3D effect */
 }
 
-/* Menu Toggle Button */
-.menu-toggle {
-    display: none;
+/* About Text */
+.about-text {
     position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #007bff;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
     color: #fff;
-    border: none;
+    padding: 10px 20px;
     border-radius: 5px;
-    padding: 10px 15px;
-    font-size: 24px;
-    z-index: 10000; /* Ensure it appears on top of other elements */
-    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    z-index: 1000; /* Ensure it's above other elements */
 }
 
-/* Mobile view adjustments */
-@media (max-width: 768px) {
-    .channel-list, .movie-list {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Smaller columns */
-    }
-
-    .button-container button {
-        padding: 10px 20px; /* Smaller padding for buttons */
-        margin: 10px 0; /* Stack buttons vertically */
-        width: 80%; /* Full width buttons */
-    }
-
-    .search-container {
-        padding: 10px;
-    }
-
-    #search-input {
-        width: 100%;
-    }
-
-    .player-wrapper {
-        padding: 10px;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .search-container, .button-container, .channel-list {
-        display: none;
-    }
-
-    .search-container.active, .button-container.active, .channel-list.active {
-        display: block;
-    }
+/* Footer */
+.footer {
+    font-size: 1rem;
+    text-align: center;
+    color: #333;
+    clear: both; /* Clear any floats */
+    margin-top: 40px; /* Ensure there's space between main content and footer */
 }
 
-@media (max-width: 480px) {
-    .channel-list, .movie-list {
-        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Even smaller columns */
-    }
-
-    .button-container button {
-        font-size: 14px; /* Smaller font size for buttons */
-    }
-
-    .back-button {
-        width: 100%; /* Full width back button */
-    }
+.footer img {
+    width: 16px;
+    height: 16px;
 }
