@@ -10,10 +10,6 @@ body {
     overflow: hidden; /* Prevents scrolling */
     background: #ffffff; /* Set background color to white */
     color: #333; /* Ensure text is readable */
-    transform: scale(0.67); /* Adjust the scale to 67% */
-    transform-origin: top left; /* Ensure scaling starts from the top left corner */
-    width: 149.25%; /* Compensate for the reduced width due to scaling */
-    height: 149.25%; /* Compensate for the reduced height due to scaling */
 }
 
 /* Overlay for background */
@@ -27,7 +23,6 @@ body::before {
     background: rgba(255, 255, 255, 0.5); /* Light overlay for readability */
     z-index: -1;
 }
-
 /* Search Container */
 .search-container {
     width: 100%;
@@ -192,7 +187,7 @@ body::before {
     padding: 0px;
     list-style-type: none;
     text-align: center;
-    max-height: 300px; /* Set height to show 3 channels initially */
+    max-height: 100px; /* Set height to show 3 channels initially */
     overflow-y: auto; /* Enable vertical scrolling */
 }
 
@@ -231,7 +226,7 @@ body::before {
 .player-wrapper {
     display: none;
     max-width: 800px;
-    padding: 10px;
+    padding: 20px;
     background-color: #ffffff;
     color: #0033cc;
     border-radius: 10px;
@@ -310,16 +305,16 @@ body::before {
     text-align: center;
     z-index: 1000; /* Ensure it's above other elements */
 }
-/* Logo Overlay */
 .logo-overlay {
+    width: 20%;
+    max-width: 100px;
     position: absolute;
-    top: 50px;
-    left: 12px;
-    width: 100px;
-    height: auto;
-    z-index: 1000;
-    pointer-events: none; /* Prevent the logo from interfering with video controls */
+    right: 4.8%;
+    opacity: 0.7;
+    margin: -23px; /* Adjust the margin as per your design needs */
 }
+
+
 
 /* Footer */
 .footer {
