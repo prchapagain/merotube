@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var searchContainer = document.querySelector('.search-container');
     var content = document.querySelector('.content');
     var fullscreenLogo = document.querySelector('.fullscreen-logo');
+    var backButton = document.getElementById('back-button');
     var lastViewedCategory = '';
 
     // Disable right-click
@@ -44,51 +45,63 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to filter a list based on query
     function filterList(list, query) {
-        var items = list.getElementsByTagName('li');
-        for (var i = 0; i < items.length; i++) {
-            var item = items[i];
-            var text = item.textContent.toLowerCase();
-            if (text.includes(query)) {
-                item.style.display = '';
-            } else {
-                item.style.display = 'none';
+        if (list) {
+            var items = list.getElementsByTagName('li');
+            for (var i = 0; i < items.length; i++) {
+                var item = items[i];
+                var text = item.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
             }
         }
     }
 
     // Add event listener for search input
-    searchInput.addEventListener('input', filterItems);
+    if (searchInput) {
+        searchInput.addEventListener('input', filterItems);
+    }
 
-    // Existing code for category buttons and player controls
-    nepaliChannelsBtn.addEventListener('click', function() {
-        showCategory('nepali');
-    });
+    // Event listeners for category buttons
+    if (nepaliChannelsBtn) {
+        nepaliChannelsBtn.addEventListener('click', function() {
+            showCategory('nepali');
+        });
+    }
 
-    hindiChannelsBtn.addEventListener('click', function() {
-        showCategory('hindi');
-    });
+    if (hindiChannelsBtn) {
+        hindiChannelsBtn.addEventListener('click', function() {
+            showCategory('hindi');
+        });
+    }
 
-    moviesBtn.addEventListener('click', function() {
-        showCategory('movies');
-    });
+    if (moviesBtn) {
+        moviesBtn.addEventListener('click', function() {
+            showCategory('movies');
+        });
+    }
 
     function showCategory(category) {
         lastViewedCategory = category;
 
-        nepaliChannelList.style.display = category === 'nepali' ? 'grid' : 'none';
-        hindiChannelList.style.display = category === 'hindi' ? 'grid' : 'none';
-        moviesList.style.display = category === 'movies' ? 'grid' : 'none';
+        if (nepaliChannelList) nepaliChannelList.style.display = category === 'nepali' ? 'grid' : 'none';
+        if (hindiChannelList) hindiChannelList.style.display = category === 'hindi' ? 'grid' : 'none';
+        if (moviesList) moviesList.style.display = category === 'movies' ? 'grid' : 'none';
         hideNotification(); // Ensure notification is hidden
     }
 
     function addChannelClickListener(channelList) {
-        channelList.addEventListener('click', function(event) {
-            var target = event.target.closest('li');
-            if (target) {
-                var src = target.getAttribute('data-src');
-                playChannel(src);
-            }
-        });
+        if (channelList) {
+            channelList.addEventListener('click', function(event) {
+                var target = event.target.closest('li');
+                if (target) {
+                    var src = target.getAttribute('data-src');
+                    playChannel(src);
+                }
+            });
+        }
     }
 
     addChannelClickListener(nepaliChannelList);
@@ -102,33 +115,32 @@ document.addEventListener('DOMContentLoaded', function() {
             type: type
         });
         player.play();
-        playerWrapper.style.display = 'block';
-        searchContainer.style.display = 'none'; // Hide search container
-        content.style.display = 'none'; // Hide content
-        buttonContainer.style.display = 'none'; // Hide buttons
+        if (playerWrapper) playerWrapper.style.display = 'block';
+        if (searchContainer) searchContainer.style.display = 'none'; // Hide search container
+        if (content) content.style.display = 'none'; // Hide content
+        if (buttonContainer) buttonContainer.style.display = 'none'; // Hide buttons
         hideNotification(); // Ensure notification is hidden
-        showLogo(); // Show the logo when the video starts playing
     }
 
-    var backButton = document.getElementById('back-button');
-    backButton.addEventListener('click', function() {
-        player.pause();
-        player.src('');
-        playerWrapper.style.display = 'none';
-        searchContainer.style.display = 'block'; // Show search container
-        showLastViewedCategory();
-        content.style.display = 'block'; // Show content
-        buttonContainer.style.display = 'block'; // Show buttons
-        hideNotification(); // Ensure notification is hidden
-        hideLogo(); // Hide the logo when going back
-    });
+    if (backButton) {
+        backButton.addEventListener('click', function() {
+            player.pause();
+            player.src('');
+            if (playerWrapper) playerWrapper.style.display = 'none';
+            if (searchContainer) searchContainer.style.display = 'block'; // Show search container
+            showLastViewedCategory();
+            if (content) content.style.display = 'block'; // Show content
+            if (buttonContainer) buttonContainer.style.display = 'block'; // Show buttons
+            hideNotification(); // Ensure notification is hidden
+        });
+    }
 
     function showLastViewedCategory() {
-        if (lastViewedCategory === 'nepali') {
+        if (lastViewedCategory === 'nepali' && nepaliChannelList) {
             nepaliChannelList.style.display = 'grid';
-        } else if (lastViewedCategory === 'hindi') {
+        } else if (lastViewedCategory === 'hindi' && hindiChannelList) {
             hindiChannelList.style.display = 'grid';
-        } else if (lastViewedCategory === 'movies') {
+        } else if (lastViewedCategory === 'movies' && moviesList) {
             moviesList.style.display = 'grid';
         }
     }
@@ -145,50 +157,47 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to show notification
     function showNotification() {
-        notification.style.display = 'block';
-        notification.style.opacity = '1';
-        notification.style.visibility = 'visible';
+        console.log('Showing notification'); // Log for debugging
+        if (notification) {
+            notification.style.display = 'block';
+            notification.style.opacity = '1';
+            notification.style.visibility = 'visible';
 
-        // Auto-hide after 3 seconds (3000 milliseconds)
-        setTimeout(function() {
-            hideNotification();
-        }, 3000);
+            // Auto-hide after 7 seconds (7000 milliseconds)
+            setTimeout(function() {
+                hideNotification();
+            }, 7000);
+        }
     }
 
     // Function to hide notification
     function hideNotification() {
-        notification.style.opacity = '0';
-        notification.style.visibility = 'hidden';
-
-        // Optional: set display to none after hiding for better performance
-        setTimeout(function() {
-            notification.style.display = 'none';
-        }, 500); // Match this timeout with the transition duration
+        console.log('Hiding notification'); // Log for debugging
+        if (notification) {
+            notification.style.opacity = '0';
+            notification.style.visibility = 'hidden';
+            
+            // Optional: set display to none after hiding for better performance
+            setTimeout(function() {
+                notification.style.display = 'none';
+            }, 700); // Match this timeout with the transition duration
+        }
     }
 
-    // Show notification on page load and then hide it after 3 seconds
+    // Show notification on page load and then hide it after 7 seconds
     showNotification();
-
-    // Show logo when video is playing
-    function showLogo() {
-        fullscreenLogo.style.display = 'block';
-    }
-
-    // Hide logo when video is paused or ended
-    function hideLogo() {
-        fullscreenLogo.style.display = 'none';
-    }
-
-    player.on('play', showLogo);
-    player.on('pause', hideLogo);
-    player.on('ended', hideLogo);
 
     // Show logo when video goes full screen
     player.on('fullscreenchange', function() {
-        if (player.isFullscreen()) {
-            fullscreenLogo.style.display = 'block';
-        } else {
-            fullscreenLogo.style.display = 'none';
+        console.log('Fullscreen change event triggered'); // Log for debugging
+        if (fullscreenLogo) {
+            if (player.isFullscreen()) {
+                console.log('Entering full screen mode'); // Log for debugging
+                fullscreenLogo.style.display = 'block';
+            } else {
+                console.log('Exiting full screen mode'); // Log for debugging
+                fullscreenLogo.style.display = 'none';
+            }
         }
     });
 });

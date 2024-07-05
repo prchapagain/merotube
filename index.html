@@ -10,13 +10,20 @@
     <script src="https://cdn.jsdelivr.net/npm/videojs-youtube@2.6.1/dist/Youtube.min.js"></script>
 </head>
 <body>
+<body>
+    <div id="fullscreen-logo" class="fullscreen-logo">
+        <img src="https://res.cloudinary.com/djcw5veb6/image/upload/v1719399755/mero_logo_gbrupf.png" alt="Logo" class="logo-image">
+        <span>MERO LIVE TV</span>
+    </div>
+    ...
+</body>
+
     <header class="header">
         <div class="header-logo">
             <img src="https://res.cloudinary.com/djcw5veb6/image/upload/v1719399755/mero_logo_gbrupf.png" alt="Your Logo">
         </div>
         <h1 class="header-title">Merotv Live</h1>
     </header>
- <button id="menu-toggle" class="menu-toggle">☰</button>
 
     <div class="side-text" id="side-text">Notification Message</div>
 
@@ -39,7 +46,7 @@
                 <img src="https://firebasestorage.googleapis.com/v0/b/merotv-f3e97.appspot.com/o/logo_stor%2F1719112505174.jpg?alt=media&token=3bd2ac60-3ba1-4717-b66d-6a5dcda7813a" alt="Mithila HD">
                 <div>Mithila HD</div>
             </li>
-            <li data-src="https://www.youtube.com/watch?v=Dc-W3r9sk-w">
+            <li data-src="https://www.youtube.com/watch?v=yTRDXKk_We0">
                 <img src="https://snowberry.prixacdn.net/media/av_vj7ypigi0u9ihjehg71f5bade7hgd5yt4cdzctq5n15poqjutkvavi25gjak.jpeg" alt="AVENUES">
                 <div>AVENUES</div>
             </li>
@@ -112,10 +119,13 @@
         </ul>
     </div>
 
+
     <div class="player-wrapper" id="player-wrapper" style="display:none;">
         <video id="video-player" class="video-js vjs-default-skin" controls preload="auto" width="640" height="360" autoplay>
             <!-- Video source will be dynamically added -->
-        </video>
+         </video>
+        <!-- Add your logo image here -->
+        <img id="logo-overlay" src="https://res.cloudinary.com/djcw5veb6/image/upload/v1719399755/mero_logo_gbrupf.png" alt="Logo" class="logo-overlay">
         <button class="back-button" id="back-button">Back to Channel List</button>
     </div>
 
@@ -123,12 +133,23 @@
         Made with ♥ by PR chapagain  <a class="button" href="https://www.prchapagain.com.np"><img src="https://res.cloudinary.com/djcw5veb6/image/upload/v1719727590/about-xxl_ybbg2a.png" alt="footer img"></a>
     </div>
 
-    <script src="script.js"></script>
+      <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var sideText = document.getElementById('side-text');
             sideText.innerHTML = "Welcome to Mero TV! Please pick your favorite channel and enjoy.";
             sideText.style.display = 'block'; // Ensure the notification is visible initially
+
+            var fullscreenLogo = document.getElementById('fullscreen-logo');
+            // Hide logo after 3 seconds
+            setTimeout(function() {
+                fullscreenLogo.style.display = 'none';
+            }, 3000);
+
+            // Or hide on click
+            fullscreenLogo.addEventListener('click', function() {
+                fullscreenLogo.style.display = 'none';
+            });
         });
     </script>
 </body>
