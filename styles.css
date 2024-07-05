@@ -134,12 +134,14 @@ body::before {
     box-shadow: 0 4px 8px rgb(255, 102, 204);
     transform: rotateY(10deg); /* 3D rotation */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+
 }
 
 .content:hover {
     transform: rotateY(0deg); /* Remove rotation on hover */
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
+
 
 /* Channel List */
 .channel-list {
