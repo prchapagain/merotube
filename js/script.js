@@ -200,4 +200,23 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+
+    // Exit confirmation dialog on back press
+    window.addEventListener('popstate', function(event) {
+        event.preventDefault();
+        showExitDialog();
+    });
+
+    function showExitDialog() {
+        const confirmation = confirm('Are you sure you want to exit?');
+        if (confirmation) {
+            window.history.back();
+        } else {
+            // Push state back to maintain current view
+            history.pushState(null, null, window.location.pathname);
+        }
+    }
+
+    // Push initial state to manage back button functionality
+    history.pushState(null, null, window.location.pathname);
 });
