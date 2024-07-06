@@ -5,24 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Merotv Live</title>
     <link href="https://vjs.zencdn.net/7.14.3/video-js.css" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <link rel="stylesheet" href="styles.css">
     <script src="https://vjs.zencdn.net/7.14.3/video.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/videojs-youtube@2.6.1/dist/Youtube.min.js"></script>
 </head>
 <body>
 <body>
-    <div id="fullscreen-logo" class="fullscreen-logo">
-        <img src="https://res.cloudinary.com/djcw5veb6/image/upload/v1719399755/mero_logo_gbrupf.png" alt="Logo" class="logo-image">
-        <span>MERO LIVE TV</span>
+   <div id="fullscreen-logo" class="fullscreen-logo">
+        <img src="https://res.cloudinary.com/dk8kcwpov/image/upload/v1720256085/Untitled_design_3_lprsug.png" alt="Logo" class="logo-image">
+<h1 class="header-title"><span class="mero">Whatch YOUR</span> <span class="tube">FEV.</span></h1>       
+        </div>
     </div>
-    ...
 </body>
 
     <header class="header">
         <div class="header-logo">
-            <img src="https://res.cloudinary.com/djcw5veb6/image/upload/v1719399755/mero_logo_gbrupf.png" alt="Your Logo">
+            <img src="https://res.cloudinary.com/dk8kcwpov/image/upload/v1720256085/Untitled_design_3_lprsug.png" alt="MERO TUBE">
         </div>
-        <h1 class="header-title">Merotv Live</h1>
+        <h1 class="header-title"><span class="mero">Whatch YOUR</span> <span class="tube">FEV.</span></h1>
+
     </header>
 
     <div class="side-text" id="side-text">Notification Message</div>
@@ -172,24 +175,28 @@
         <video id="video-player" class="video-js vjs-default-skin" controls preload="auto" width="640" height="360" autoplay>
             <!-- Video source will be dynamically added -->
          </video>
+
         <!-- Add your logo image here -->
-        <img id="logo-overlay" src="https://res.cloudinary.com/djcw5veb6/image/upload/v1719399755/mero_logo_gbrupf.png" alt="Logo" class="logo-overlay">
+        <img id="logo-overlay" src="https://res.cloudinary.com/dk8kcwpov/image/upload/v1720256085/Untitled_design_3_lprsug.png" alt="Logo" class="logo-overlay">
         <button class="back-button" id="back-button">Back to Channel List</button>
     </div>
 
-    <div class="footer">
+<div class="footer">
         Made with ♥ by PR chapagain  <a class="button" href="https://www.prchapagain.com.np"><img src="https://res.cloudinary.com/djcw5veb6/image/upload/v1719727590/about-xxl_ybbg2a.png" alt="footer img"></a>
     </div>
 <footer>
     <p>This project is made by PR Chapagain. <a href="https://github.com/prchapagain/merotv" target="_blank">View source code on GitHub</a></p>
 </footer>
 
-
+ <script>
+        // Initialize the Video.js player
+        var player = videojs('my-video');
+    </script>
       <script src="js/script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var sideText = document.getElementById('side-text');
-            sideText.innerHTML = "Welcome to Mero TV! Please pick your favorite channel and enjoy.";
+            sideText.innerHTML = "Welcome to MeroTUBE! Please pick your favorite channel and enjoy.";
             sideText.style.display = 'block'; // Ensure the notification is visible initially
 
             var fullscreenLogo = document.getElementById('fullscreen-logo');
