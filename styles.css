@@ -272,7 +272,7 @@ body::before {
     display: none;
     max-width: 800px;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #73eeff3b;
     color: #0033cc;
     border-radius: 10px;
     box-shadow: 0 9px 6px rgb(0, 255, 153);
@@ -312,6 +312,21 @@ body::before {
 /* Video JS Player controls background */
 .video-js .vjs-control-bar {
     background-color: #ff6666 !important; /* Control bar background color */
+}
+
+.video-js {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    max-width: 100%;
+    margin: 0 auto; /* Center the player */
+}
+
+
+@media (max-width: 480px) {
+    .video-js {
+        padding-top: 56.25%; /* Maintain 16:9 Aspect Ratio on Very Small Screens */
+        max-width: 100%;
+    }
 }
 
 /* Poster image */
@@ -457,51 +472,54 @@ r */
         color: #333;
     }
 
+   /* Player Wrapper */
+.player-wrapper {
+    max-width: 800px; /* Limit maximum width for larger screens */
+    padding: 20px;
+    background-color: #73eeff3b;
+    color: #0033cc;
+    border-radius: 10px;
+    box-shadow: 0 9px 6px rgba(0, 255, 153, 0.5);
+    animation: fadeIn 0.5s ease forwards;
+    margin: 0 auto; /* Center the wrapper horizontally */
+}
+
+/* Back Button */
+.back-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block; /* Ensure button doesn't take full width */
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}
+
+/* Media Queries */
+@media (max-width: 800px) {
     .player-wrapper {
-        padding: 10px;
-        margin: 10px auto; /* Center the player */
-        max-width: 90%; /* Ensure player doesn't overflow */
-        background-color: #ffffff;
-        color: #0033cc;
-        border-radius: 10px;
-        box-shadow: 0 9px 6px rgb(0, 255, 153);
-        animation: fadeIn 0.5s ease forwards;
-        max-height: 90vh; /* Limit player height to 30% of viewport height */
-        overflow-y: auto; /* Enable vertical scrolling if needed */
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .player-wrapper {
+        max-width: 100%; /* Full width on smaller screens */
+        box-shadow: none; /* Remove box shadow on smaller screens */
     }
 
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(-20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    .back-button {
+        display: block; /* Stack button on smaller screens */
+        width: 100%; /* Full width button on mobile */
+        margin: 20px auto; /* Center button horizontally */
     }
+}
 
-    .button-container {
-        margin: 8px;
-        text-align: center;
-    }
-
-    .button-container button {
-        width: 42%; /* Make buttons full-width */
-        padding: 1px 2px;
-        font-size: 16px;
-        border-radius: 5px; /* Round the corners slightly for a better touch experience */
-        background-color: #cc33ff;
-        color: #ffffff;
-        border: none;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .button-container button:hover {
-        background-color: #0056b3;
-        transform: scale(1.05); /* Slight increase in size on hover for 3D effect */
-    }
 
     .header, .footer {
         padding: 8px;
@@ -521,7 +539,7 @@ r */
         width: 90%;
         max-width: 100%; /* Full width on mobile */
         padding: 0px;
-        background-color: #f0f0f0;
+        background-color: ##ccedf5;
         color: #333;
         border-radius: 3px;
         box-shadow: 0 4px 8px rgb(255, 102, 204);
