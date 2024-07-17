@@ -1,4 +1,3 @@
-
 /* General Reset */
 * {
     box-sizing: border-box;
@@ -335,10 +334,16 @@ body::before {
     width: 20%;
     max-width: 100px;
     position: absolute;
-    right: 12%;
+    right: 9%;
     opacity: 0.7;
-    margin: -55px;
+    margin: -60px;
 }
+.video-player-dimensions {
+    width: 1920px;
+    height: 780px;
+}
+
+
 
 /* Adjustments for devices with max-width 768px (tablets and large phones) */
 @media (max-width: 768px) {
