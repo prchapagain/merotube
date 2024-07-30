@@ -315,6 +315,12 @@ body::before {
 .vjs-big-play-button {
     background-color: #ff6666 !important;
 }
+/* Additional styles for the series list */
+#series-list {
+    display: none;
+}
+
+/* Rest of your styles... */
 
 /* About Text */
 .about-text {

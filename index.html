@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Merotv Live</title>
-    <link href="https://vjs.zencdn.net/7.14.3/video-js.css" rel="stylesheet">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+    <title>Merotube</title>
+<link rel="icon" href="icon/favicon.ico" type="image/x-icon">
+<link rel="icon" href="icon/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="icon/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="icon/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="icon/favicon-48x48.png" sizes="48x48" type="image/png">
+<link href="https://vjs.zencdn.net/7.14.3/video-js.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <script src="https://vjs.zencdn.net/7.14.3/video.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/videojs-youtube@2.6.1/dist/Youtube.min.js"></script>
 </head>
 <body>
-<body>
    <div id="fullscreen-logo" class="fullscreen-logo">
         <img src="https://res.cloudinary.com/dk8kcwpov/image/upload/v1720256085/Untitled_design_3_lprsug.png" alt="Logo" class="logo-image">
-<h1 class="header-title"><span class="mero">Whatch YOUR</span> <span class="tube">FEV.</span></h1>       
-        </div>
+        <h1 class="header-title"><span class="mero">Whatch YOUR</span> <span class="tube">FEV.</span></h1>       
     </div>
-</body>
 
     <header class="header">
         <div class="header-logo">
             <img src="https://res.cloudinary.com/dk8kcwpov/image/upload/v1720256085/Untitled_design_3_lprsug.png" alt="MERO TUBE">
         </div>
         <h1 class="header-title"><span class="mero">Whatch YOUR</span> <span class="tube">FEV.</span></h1>
-
     </header>
 
     <div class="side-text" id="side-text">Notification Message</div>
@@ -34,162 +34,37 @@
         <button id="nepali-channels-btn">Nepali Channels</button>
         <button id="hindi-channels-btn">Hindi Channels</button>
         <button id="movies-btn">Movies</button>
+        <button id="series-btn">Series</button>
     </div>
-<div class="search-container">
-    <input type="text" id="search-input" placeholder="Search for movies or channels...">
-</div>
+    
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search for movies or channels...">
+    </div>
 
     <div class="content">
-        <ul class="channel-list" id="nepali-channel-list">
-            <li data-src="https://ktvhdsg.ekantipur.com:8443/high_quality_85840165/hd/playlist.m3u8">
-                <img src="https://kantipurtv.com/assets/img/ktv-logo.svg" alt="Kantipur HD">
-                <div>Kantipur HD</div>
-            </li>
-            <li data-src="http://150.107.205.212:1935/live/mithila/playlist.m3u8">
-                <img src="https://firebasestorage.googleapis.com/v0/b/merotv-f3e97.appspot.com/o/logo_stor%2F1719112505174.jpg?alt=media&token=3bd2ac60-3ba1-4717-b66d-6a5dcda7813a" alt="Mithila HD">
-                <div>Mithila HD</div>
-            </li>
-            <li data-src="https://www.youtube.com/watch?v=sQ2qXYpW6vA">
-                <img src="https://snowberry.prixacdn.net/media/av_vj7ypigi0u9ihjehg71f5bade7hgd5yt4cdzctq5n15poqjutkvavi25gjak.jpeg" alt="AVENUES">
-                <div>AVENUES</div>
-            </li>
-<li data-src="http://live.divyadarshantv.com/hls/stream.m3u8">
-    <img src="https://divyadarshantv.com/wp-content/uploads/2020/06/Divya-Darshan_tvlogo.png" alt="divyadarshantv">
-   <div> Divyadarshantv<div/>
-</li>
-<li data-src="https://youtu.be/9Q5lNbZw5Qk">
-        <img src="https://img.youtube.com/vi/9Q5lNbZw5Qk/0.jpg" alt="YouTube Video">
-       <div> HANUMAN CHALISA</div>
-    </li>
-
-            <li data-src="https://np.truestreamz.com/broadcaster/INDIGENOUSmob.stream/playlist.m3u8">
-                <img src="https://th.bing.com/th/id/OIP.ckz_nK74iMtIXb5UjAHmCQAAAA?w=145&h=100&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="News 24">
-                <div>INDIGENOUS</div>
-</li>
-    <li data-src="https://webtv-stream.nettv.com.np/broadcaster/Paryawaran.stream/playlist.m3u8">
-        <img src="https://paryawarantv.com/paryawarantv/img/logo/logo.png" alt="Paryawaran Channel">
-        <div>Paryawaran Channel</div>
-            </li>
-        </ul>
-     <ul class="channel-list" id="hindi-channel-list" style="display:none;">
-
-    <li data-src="https://pubads.g.doubleclick.net/ssai/event/JCAm25qkRXiKcK1AJMlvKQ/master.m3u8">
-        <img src="https://okteve.com/wp-content/uploads/media/050fe3b3bdb50730367e3eede501eaeb.jpeg" alt="ZOOM TV">
-        <div>ZOOM TV</div>
-    </li>
-        <li data-src="https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01412-xiaomiasia-yrfmusic-xiaomi/playlist.m3u8">
-        <img src="https://images.genius.com/279c9c8189f98d5ba38e3b97b2f76915.900x900x1.jpg" alt="YRF Music HD">
-        <div>YRF Music HD</div>
-    </li>
-    <li data-src="http://d2q8p4pe5spbak.cloudfront.net/bpk-tv/9XM/9XM.isml/index.m3u8">
-        <img src="https://videoportal.viavilab.com/upload/images/9xm_logo.png" alt="9XM Music">
-        <div>9XM Music</div>
-</li>
-<li data-src="http://2hubs.ddns.net:25461/crAig1s/myG32Vd21@/67252#checkedby:iptvlister.com">
-">
-        <img src="https://origin-staticv2.sonyliv.com/masthead_logo/Sony_TEN1HD_23oct_masthead_logo.png" alt="SONEY SPORT 1">
-        <div>Sony sport</div>
-
-    </li>
-<li data-src="http://2hubs.ddns.net:25461/pachaman/asdfghuytrc/63595#checkedby:iptvlister.com">
-">
-    <img src="https://th.bing.com/th/id/OIP.Fy8Yb2gHvn-o6vI4L3OhLwAAAA?rs=1&pid=ImgDetMain" alt="Soney sport2">
-  <div>Sony sport 2</div>
-</li>
-    <li data-src="https://d22ljxpuae2sin.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/BayWatch-Canada-prod/playlist.m3u8">
-        <img src="https://flxt.tmsimg.com/assets/p7892732_b_v8_aa.jpg" alt="The BAYWATCH">
-        <div>The BAYWATCH</div>
-    </li>
-    <li data-src="https://streamer103.neterra.tv/wness/wness_SD.m3u8">
-        <img src="https://th.bing.com/th/id/OIP.3AXXz8mg3kkpC2coWeWbqgHaHa?rs=1&pid=ImgDetMain" alt="Fitness Plus">
-        <div>Fitness Plus</div>
-    </li>
-          <li data-src="http://103.72.179.30:1935/GECHindi/SONY.stream_720p/Playlist.m3u8">
-        <img src="https://upload.wikimedia.org/wikipedia/en/d/de/Sony_TV_new.png" alt="SONY TV">
-        <div>SONY TV</div>
-        <li data-src="https://familyhls.avatv.live/hls/stream.m3u8">
-        <img src="https://th.bing.com/th/id/R.9e1ec9a3d6fa566a776c1b247cdef5ae?rik=vj%2ffh1%2bprTsyaQ&pid=ImgRaw&r=0" alt="The Q">
-        <div>The Q</div>
-    </li>
-    <li data-src="https://denver1769.pages.dev/Discovery/discovery_hd_hindi.m3u8">
-        <img src="https://th.bing.com/th/id/OIP.GpvM3--bNBNZLwuP07GNawHaFj?rs=1&pid=ImgDetMain" alt="Discovery Channel - Hindi">
-        <div>Discovery Channel - Hindi</div>
-    </li>
-        <li data-src="https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/foodfood/master.m3u8">
-        <img src="https://yt3.ggpht.com/-MlPj8fz7Pwg/AAAAAAAAAAI/AAAAAAAAAAA/t8sJ07Lb6dw/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" alt="FOOD FOOD">
-        <div>FOOD FOOD</div>
-    </li>
-    </ul>
-
-
-        <ul class="channel-list" id="movies-list" style="display:none;">
-            <li data-src="https://www.youtube.com/watch?v=KwMI_u4CSzc">
-                <img src="https://img.youtube.com/vi/KwMI_u4CSzc/0.jpg" alt="लक्का जवान २०२४">
-                <div>लक्का जवान २०२४</div>
-            </li>
-            <li data-src="https://www.youtube.com/watch?v=7WR3qzB40V8">
-                <img src="https://img.youtube.com/vi/7WR3qzB40V8/0.jpg" alt="कबड्डी ४ - The Final Match">
-                <div>कबड्डी ४ - The Final Match</div>
-            </li>
-            <li data-src="https://www.youtube.com/watch?v=HBljixfMG-0">
-                <img src="https://img.youtube.com/vi/HBljixfMG-0/0.jpg" alt="Yathartha - The Reality">
-                <div>Yathartha - The Reality</div>
-            </li>
-            <li data-src="https://www.youtube.com/watch?v=y7vMwo5Iowk">
-                <img src="https://img.youtube.com/vi/y7vMwo5Iowk/0.jpg" alt="Manavta">
-                <div>Manavta</div>
-            </li>
-            <li data-src="https://www.youtube.com/watch?v=gBM4IwixICg">
-                <img src="https://img.youtube.com/vi/gBM4IwixICg/0.jpg" alt="Fulbari">
-                <div>Fulbari</div>
-            </li>
-            <li data-src="https://www.youtube.com/watch?v=vhS4YFaGDCg">
-                <img src="https://img.youtube.com/vi/vhS4YFaGDCg/0.jpg" alt="UK Sweater">
-                <div>UK Sweater</div>
-            </li>
-            <li data-src="https://www.youtube.com/watch?v=TMQ0aqljWG4">
-                <img src="https://img.youtube.com/vi/TMQ0aqljWG4/0.jpg" alt="Appa">
-                <div>Appa</div>
-            </li>
-            <li data-src="https://www.youtube.com/watch?v=442Aw7Dj_2w">
-                <img src="https://img.youtube.com/vi/442Aw7Dj_2w/0.jpg" alt="Sano Mann">
-                <div>Sano Mann</div>
-            </li>
-            <li data-src="https://www.youtube.com/watch?v=zOuQfyvw4mM">
-                <img src="https://img.youtube.com/vi/zOuQfyvw4mM/0.jpg" alt="A Mero Hajur 4">
-                <div>A Mero Hajur 4</div>
-            </li>
-            <li data-src="https://www.youtube.com/watch?v=lgnmYWl26SY">
-                <img src="https://img.youtube.com/vi/lgnmYWl26SY/0.jpg" alt="Dui Numbari">
-                <div>Dui Numbari</div>
-            </li>
-            <li data-src="https://www.youtube.com/watch?v=xHbyrAIPn3Y">
-                <img src="https://img.youtube.com/vi/xHbyrAIPn3Y/0.jpg" alt="Ghampani">
-                <div>Ghampani</div>
-            </li>
-        </ul>
+        <ul class="channel-list" id="nepali-channel-list"></ul>
+        <ul class="channel-list" id="hindi-channel-list"></ul>
+        <ul class="channel-list" id="movies-list"></ul>
+        <ul class="channel-list" id="series-list"></ul>
     </div>
-
 
     <div class="player-wrapper" id="player-wrapper" style="display:none;">
         <video id="video-player" class="video-js vjs-default-skin" controls preload="auto" width="640" height="360" autoplay>
             <!-- Video source will be dynamically added -->
-         </video>
-
-        <!-- Add your logo image here -->
+        </video>
         <img id="logo-overlay" src="https://res.cloudinary.com/dk8kcwpov/image/upload/v1720256085/Untitled_design_3_lprsug.png" alt="Logo" class="logo-overlay">
         <button class="back-button" id="back-button">Back to Channel List</button>
     </div>
 
-<div class="footer">
-        Made with ♥ by PR chapagain  <a class="button" href="https://github.com/prchapagain/merotv"><img src="https://res.cloudinary.com/djcw5veb6/image/upload/v1719727590/about-xxl_ybbg2a.png" alt="footer img"></a>
+    <div class="footer">
+        Made with ♥ by PR chapagain <a class="button" href="https://github.com/prchapagain/merotv"><img src="https://res.cloudinary.com/djcw5veb6/image/upload/v1719727590/about-xxl_ybbg2a.png" alt="footer img"></a>
     </div>
 
- <script>
+    <script>
         // Initialize the Video.js player
         var player = videojs('my-video');
     </script>
-      <script src="js/script.js"></script>
+    <script src="js/script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var sideText = document.getElementById('side-text');
