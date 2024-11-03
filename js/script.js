@@ -34,7 +34,12 @@ document.addEventListener('DOMContentLoaded', function() {
     text: "Mithila HD"
 },
 {
-    src: "https://www.youtube.com/watch?v=sQ2qXYpW6vA",
+    src: "https://streaming.tvnepal.com:19360/janatatv/janatatv.m3u8",
+    img: "https://th.bing.com/th/id/OIP.Sa5GCH4LXL87JtEbbvUzzwHaHn?rs=1&pid=ImgDetMain",
+    text: "janata tv"
+},
+{
+    src: "https://ythls.armelin.one/channel/UCMDzPE_7fcZSRJgpwIVor_A.m3u8",
     img: "https://snowberry.prixacdn.net/media/av_vj7ypigi0u9ihjehg71f5bade7hgd5yt4cdzctq5n15poqjutkvavi25gjak.jpeg",
     text: "AVENUES"
 },
